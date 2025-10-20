@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  trevee-api:
+    build: .
+    container_name: trevee-supply-api
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      # Add your environment variables here or use .env file
+      # - ALCHEMY_API_KEY=${ALCHEMY_API_KEY}
+      # - ETHEREUM_RPC_URL=${ETHEREUM_RPC_URL}
+      # - SONIC_RPC_URL=${SONIC_RPC_URL}
+      # - PLASMA_RPC_URL=${PLASMA_RPC_URL}
+    env_file:
+      - .env  # Optional: load from .env file
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:3000/health', (r) => {process.exit(r.statusCode === 200 ? 0 : 1)})"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - trevee-network
+
+networks:
+  trevee-network:
+    driver: bridge

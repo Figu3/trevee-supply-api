@@ -1,0 +1,34 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/**/*.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/circulating-supply",
+      "dest": "/api/circulating-supply.js"
+    },
+    {
+      "src": "/api/total-supply",
+      "dest": "/api/total-supply.js"
+    },
+    {
+      "src": "/api/circulating-supply/detailed",
+      "dest": "/api/detailed.js"
+    },
+    {
+      "src": "/health",
+      "dest": "/api/health.js"
+    },
+    {
+      "src": "/",
+      "dest": "/api/index.js"
+    }
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  }
+}

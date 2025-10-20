@@ -223,7 +223,59 @@ docker-compose logs -f
 docker-compose down
 ```
 
-### Option 4: Cloud Platforms
+### Option 4: Vercel (Recommended - Easiest & Free)
+
+Vercel is perfect for this API with automatic HTTPS, global CDN, and serverless functions.
+
+#### Deploy with Vercel CLI
+
+```bash
+# Install Vercel CLI
+npm install -g vercel
+
+# Deploy (from project directory)
+vercel
+
+# Follow prompts:
+# - Set up and deploy: Yes
+# - Which scope: Your account
+# - Link to existing project: No
+# - Project name: trevee-supply-api
+# - Directory: ./
+# - Override settings: No
+
+# Add environment variables (optional but recommended)
+vercel env add ALCHEMY_API_KEY
+# Enter your Alchemy API key when prompted
+
+# Deploy to production
+vercel --prod
+```
+
+Your API will be live at: `https://trevee-supply-api.vercel.app`
+
+#### Deploy with Vercel Dashboard
+
+1. Go to [vercel.com](https://vercel.com) and sign in with GitHub
+2. Click "Add New" → "Project"
+3. Import your `trevee-supply-api` repository
+4. Configure:
+   - Framework Preset: **Other**
+   - Build Command: (leave empty)
+   - Output Directory: (leave empty)
+   - Install Command: `npm install`
+5. Add Environment Variables (optional):
+   - `ALCHEMY_API_KEY`: your_alchemy_key
+   - `ETHEREUM_RPC_URL`: custom_rpc_url (optional)
+6. Click "Deploy"
+
+**Endpoints will be**:
+- `https://your-project.vercel.app/api/circulating-supply`
+- `https://your-project.vercel.app/api/total-supply`
+- `https://your-project.vercel.app/api/circulating-supply/detailed`
+- `https://your-project.vercel.app/health`
+
+### Option 5: Other Cloud Platforms
 
 #### Heroku
 ```bash
@@ -250,7 +302,11 @@ git push heroku main
 
 ## HTTPS Setup (Required for Production)
 
-CoinGecko requires HTTPS. Options:
+CoinGecko requires HTTPS.
+
+**Note**: If you deploy to **Vercel**, HTTPS is automatically provided! No additional setup needed.
+
+For other platforms, here are the options:
 
 ### Nginx Reverse Proxy
 

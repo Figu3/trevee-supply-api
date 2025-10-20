@@ -41,7 +41,7 @@ const EXCLUDED_ADDRESSES = [
   '0x7481b40c3453D0b5D9b8f82427c77C2eCAd397d1', // Plasma DAO
 
   // Migration Contract
-  '0x7481b40c3453D0b5D9b8f82427c77C2eCAd397d1'  // Migration contract (Plasma)
+  '0x99fe40e501151e92f10ac13ea1c06083ee170363'  // Migration contract (Sonic)
 ];
 
 // Standard ERC20 ABI

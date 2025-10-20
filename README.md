@@ -177,7 +177,7 @@ The following addresses are excluded from circulating supply:
 - `0x7481b40c3453D0b5D9b8f82427c77C2eCAd397d1` (Plasma DAO)
 
 **Migration Contract:**
-- `0x7481b40c3453D0b5D9b8f82427c77C2eCAd397d1` (Migration contract)
+- `0x99fe40e501151e92f10ac13ea1c06083ee170363` (Migration contract on Sonic)
 
 To add more excluded addresses, edit the `EXCLUDED_ADDRESSES` array in the API files.
 

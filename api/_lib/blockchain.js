@@ -142,7 +142,8 @@ async function getAllChainsCirculatingSupply() {
 
   // Calculate totals
   const totalCirculating = ethereum.circulatingSupply + sonic.circulatingSupply + plasma.circulatingSupply;
-  const totalSupply = ethereum.totalSupply + sonic.totalSupply + plasma.totalSupply;
+  // Use Sonic as canonical source for total supply (50M TREVEE)
+  const totalSupply = sonic.totalSupply;
   const totalExcluded = ethereum.excludedBalance + sonic.excludedBalance + plasma.excludedBalance;
 
   return {
